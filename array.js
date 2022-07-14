@@ -1,8 +1,9 @@
+
+
 // questions array
 const questionArray = [
     {
         question: '1 + 1',
-        // answers array
         answers: [
             {
                 option: '1',
