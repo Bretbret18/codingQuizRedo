@@ -27,19 +27,19 @@ const questionArray = [
         question: 'test two',
         answers: [
             {
-                option: 'answer one',
+                option: 'answer uno',
                 isCorrect: false
             },
             {
-                option: 'answer two',
+                option: 'answer dose',
                 isCorrect: false
             },
             {
-                option: 'answer three',
+                option: 'answer treis',
                 isCorrect: false
             },
             {
-                option: 'answer four',
+                option: 'answer quatro',
                 isCorrect: true
             }
         ]
