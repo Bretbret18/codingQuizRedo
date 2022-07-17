@@ -1,6 +1,10 @@
 let round = 0;
 
+$('#end-quiz-options').hide()
+    $('#finished-quiz-page').hide()
+
 function quizStart() {
+    
     // Start quiz styles
     $('#start-quiz').css('border', '4px solid darkslategrey');
     $('#start-quiz').css('margin', '20px');
@@ -10,6 +14,7 @@ function quizStart() {
 
     // Greeting Styles
     $('#greeting').css('fontSize', '20px');
+    $('#greeting').text(`Welcome to Coding Quiz Challenge!`)
 
     // Rules Button
     const rulesBtn = document.querySelector('#rules-btn');
@@ -24,13 +29,17 @@ function quizStart() {
     $('#rules-btn').css('borderRadius', '10px');
     $('#rules-btn').css('fontWeight', '900');
     $('#rules-btn').css('border', '4px solid white')
+    // End Quiz Page
+    $('#finished-quiz-page').hide()
 
     // Rules Button Event
     $('#rules-btn').on('click', function (e) {
         $('#start-quiz').hide()
+        
         $('#quiz-rules').show()
         quizRules()
     })
+    console.log('quiz start end');
 }
 
 function quizRules() {
@@ -69,11 +78,15 @@ class="bg bg-info">Start Quiz!</button>`);
         console.log('start quiz btn');
 
         $('#quiz-rules').hide()
+        
         questionPage()
     })
+    
+    console.log('quiz rules end');
 }
 
 function questionPage() {
+    $('#finished-quiz-page').hide()
     var questionPage = document.querySelectorAll('.question')
     // Question Div Styles
     $(questionPage).css('border', '4px solid darkslategrey');
@@ -108,15 +121,17 @@ ${questionArray[round].question}</h2></td> <br>
     $(answers).css('color', 'white');
 
     gameFunction()
+    console.log('question page end');
 }
 
 function gameFunction() {
+    
     $('.answer').each(function (i, answerBtn) {
         $(this).on('click', function (e) {
             console.log(answerBtn);
             console.log(round);
             console.log(questionArray[round].question);
-
+            
             if (questionArray[round].answers[i].isCorrect === true) { 
 
                 round++
@@ -124,25 +139,24 @@ function gameFunction() {
                     round--
                     console.log('here');
                     $('#question-page').hide()
-                    $('#finshed-quiz-page').show()
                     finishedQuizPage()
                 }
                 console.log(round);
                 console.log('next question');
                questionPage()
+
             }
+            
         })
     })
+    
+    console.log('game function end');
 }
 
 function finishedQuizPage() {
+   
     console.log('finished quiz page');
-    $('#finshed-quiz-page').css('border', '4px solid darkslategrey');
-    $('#finshed-quiz-page').css('margin', '20px');
-    $('#finshed-quiz-page').css('padding', '40px');
-    $('#finshed-quiz-page').css('textAlign', 'center');
-    $('#finshed-quiz-page').css('color', 'white');
-    $('#finshed-quiz-page').html(`You have finished the quiz!`)
+    
 }
 
 quizStart()
